@@ -1,22 +1,30 @@
 import express from "express"
 import session from 'express-session'
 import passport from "passport";
-import MongoStore from "connect-mongo";
-
-
+import MongoStore from "connect-mongo"
+import yargs from 'yargs'
+import {hideBin} from "yargs/helpers";
+import dotenv from 'dotenv'
 import api from './src/routes/index.js' 
-import { URL } from "./src/DB/db.js";
+import { AtlasMongo } from "./src/DB/db.js";
 import './src/DB/models/usuarios.js'
 import './src/passport/passportConfig.js'
 
+
+
+dotenv.config({path:'./.env'})
+const clave= process.env.secret
+
+
+
+
 const app = express()
-const port = 8080;
 
 app.use( session({
-    secret:'c0der',
+    secret:clave,
     resave:true,
     store:MongoStore.create({
-        mongoUrl:URL
+        mongoUrl:AtlasMongo
     }) ,
     saveUninitialized:true
 }))
@@ -24,8 +32,47 @@ app.use( session({
 
 
 
-// interacciones
-app.listen(port, () => console.log(`Server Iniciado en el ${port}🔥`))
+
+
+
+
+                                            // Aca esta el inicio con el yargs
+let port
+
+yargs(hideBin(process.argv))
+    .command('list', 'List all commands', /*handler*/)
+    .command({
+        command: 'puerto',
+        describe: 'Aqui recibo el puerto',
+        builder: {
+            numero: {
+                describe: 'Numero',
+                type: 'number',
+                demandOption: false
+            }
+        },
+        handler: (argv) => {
+            console.log(argv)
+            port= argv.numero
+        }
+    })
+    .parse();
+
+    if(port==undefined){
+        app.listen(8080, () => console.log(`Server Iniciado en el 8080🔥`))
+
+    }else{
+        app.listen(port, () => console.log(`Server Iniciado en el ${port}🔥`))
+
+    }
+    
+
+
+                                                                
+    
+    
+                                        // interacciones
+
 app.use(express.urlencoded({extended: true}));
 
 
@@ -43,3 +90,12 @@ app.use(passport.session());
 
 // rutas
  app.use('/', api);
+
+
+ 
+ 
+
+
+
+
+   
