@@ -1,3 +1,6 @@
+Si deseas instalar las dependencias. Basta con que uses : npm i
+
+
 Para la consigna del pm2 utilice los siguientes comandos para poder ejecutar los procesos
 
  🔥 pm2 start app.js --name="Cluster" --watch -i 4  
