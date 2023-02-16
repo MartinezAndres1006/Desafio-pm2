@@ -12,3 +12,8 @@
 2023/02/16 01:31:33 [notice] 10736#13476: signal process started
 2023/02/16 01:35:42 [emerg] 11260#5752: host not found in upstream "node_app_random" in C:\Users\usuario\Desktop\CoderHouse\Desafio-LoginPassport\nginx-1.22.1/conf/nginx.conf:43
 2023/02/16 01:36:09 [notice] 1284#12412: signal process started
+2023/02/16 01:37:12 [error] 13256#2452: *3 connect() failed (10061: No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión) while connecting to upstream, client: 127.0.0.1, server: localhost, request: "GET /info HTTP/1.1", upstream: "http://[::1]:8080/info", host: "localhost"
+2023/02/16 01:37:14 [error] 13256#2452: *3 connect() failed (10061: No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión) while connecting to upstream, client: 127.0.0.1, server: localhost, request: "GET /info HTTP/1.1", upstream: "http://127.0.0.1:8080/info", host: "localhost"
+2023/02/16 01:38:17 [error] 13256#2452: *3 connect() failed (10061: No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión) while connecting to upstream, client: 127.0.0.1, server: localhost, request: "GET /randoms HTTP/1.1", upstream: "http://[::1]:8081/randoms", host: "localhost"
+2023/02/16 01:38:19 [error] 13256#2452: *3 connect() failed (10061: No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión) while connecting to upstream, client: 127.0.0.1, server: localhost, request: "GET /randoms HTTP/1.1", upstream: "http://127.0.0.1:8081/randoms", host: "localhost"
+2023/02/16 01:42:20 [notice] 2308#6124: signal process started
