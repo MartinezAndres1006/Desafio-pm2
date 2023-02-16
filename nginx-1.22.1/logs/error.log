@@ -1,0 +1,2 @@
+2023/02/15 22:27:20 [error] 5852#2276: *1 CreateFile() "C:\Users\usuario\Desktop\CoderHouse\Desafio-LoginPassport\nginx-1.22.1/html/favicon.ico" failed (2: El sistema no puede encontrar el archivo especificado), client: 127.0.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost", referrer: "http://localhost/"
+2023/02/15 22:37:17 [notice] 10840#5216: signal process started

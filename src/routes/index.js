@@ -2,7 +2,8 @@ import { Router } from 'express';
 import passport from 'passport';
 const router = Router();
 import { fork } from 'child_process'
-
+import core from 'os'
+import { pid } from 'process';
 const info = [{
     "id": process.pid
 }, {
@@ -15,6 +16,8 @@ const info = [{
     "Memoria": process.memoryUsage()
 }, {
     "Argumento de entrada": process.argv
+},{
+    "Cantidad de procesadores en el servidor": core.cpus().length
 }]
 
 
@@ -39,6 +42,7 @@ router.get('/home', isAuth, (req, res) => {
     res.render('home', {
         nombre: req.user.nombre
     });
+
 });
 
 router.get('/login', (req, res) => {
